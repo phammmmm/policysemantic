@@ -9,7 +9,7 @@
 		<title>Murdoch - Upload Policy</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="{% static "assets/css/main.css" %}" />
 	</head>
 	<body class="is-preload">
 
@@ -22,7 +22,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Murdoch University</strong> Policy Index</a>
+									<a href="{% url 'index.html'%}" class="logo"><strong>Murdoch University</strong> Policy Index</a>
 								</header>
 
 							<!-- Content -->
@@ -70,10 +70,12 @@
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<li><a href="search-policy.html">Search Policy</a></li>
-										<li><a href="browse-policy.html">Browse Policy</a></li>
-										<li><a href="upload-policy.html">Upload Policy</a></li>										
+										<li><a href="{% url 'index.html'%}">Homepage</a></li>
+										<li><a href="{% url 'about.html'%}">About</a></li>
+										<li><a href="{% url 'search-policy.html'%}">Search Policy</a></li>
+										<li><a href="{% url 'browse-policy.html'%}">Browse Policy</a></li>
+										<li><a href="{% url 'upload-policy.html'%}">Upload Policy</a></li>
+										<li><a href="{% url 'helppage.html'%}">Help</a></li>
 									</ul>
 								</nav>
 
@@ -88,11 +90,10 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
+		<script src="{% static "assets/js/jquery.min.js" %}"></script>
+		<script src="{% static "assets/js/browser.min.js" %}"></script>
+		<script src="{% static "assets/js/breakpoints.min.js" %}"></script>
+		<script src="{% static "assets/js/util.js" %}"></script>
+		<script src="{% static "assets/js/main.js" %}"></script>
 	</body>
 </html>

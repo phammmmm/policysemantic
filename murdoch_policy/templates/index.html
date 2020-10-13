@@ -45,12 +45,10 @@
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">Homepage</a></li>
-                    <li><a href="about.html">About</a></li>
-										<li><a href="search-policy.html">Search Policy</a></li>
-										<li><a href="browse-policy.html">Browse Policy</a></li>
-										<li><a href="upload-policy.html">Upload Policy</a></li>
-                    <li><a href="helppage.html">Help</a></li>
+										<li><a href="{% url 'murdochpolicyapp:index'%}">Homepage</a></li>
+										<li><a href="{% url 'murdochpolicyapp:search'%}">Search Policy</a></li>
+										<li><a href="{% url 'murdochpolicyapp:browse'%}">Browse Policy</a></li>
+										<li><a href="{% url 'murdochpolicyapp:upload'%}">Upload Policy</a></li>
 									</ul>
 								</nav>
 

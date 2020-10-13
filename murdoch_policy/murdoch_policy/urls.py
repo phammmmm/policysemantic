@@ -21,5 +21,8 @@ from django.conf.urls import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('', views.upload, name='upload'),
+    path('', views.search, name='search'),
+    path('', views.browse, name='browse'),
     path('murdochpolicyapp/', include('murdochpolicyapp.urls'))
 ]

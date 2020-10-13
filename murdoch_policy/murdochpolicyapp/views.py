@@ -17,6 +17,3 @@ def search(request):
 
 def browse(request):
     return render(request, 'browse-policy.html')
-
-
- 

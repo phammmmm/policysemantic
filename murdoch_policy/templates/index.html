@@ -24,7 +24,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Murdoch University</strong> Policy Index</a>
+									<a href="{% url 'index'%}" class="logo"><strong>Murdoch University</strong> Policy Index</a>
 								</header>
 
 							<!-- Section -->
@@ -45,10 +45,10 @@
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="{% url 'murdochpolicyapp:index'%}">Homepage</a></li>
-										<li><a href="{% url 'murdochpolicyapp:search'%}">Search Policy</a></li>
-										<li><a href="{% url 'murdochpolicyapp:browse'%}">Browse Policy</a></li>
-										<li><a href="{% url 'murdochpolicyapp:upload'%}">Upload Policy</a></li>
+										<li><a href="{% url 'index'%}">Homepage</a></li>
+										<li><a href="{% url 'search'%}">Search Policy</a></li>
+										<li><a href="{% url 'browse'%}">Browse Policy</a></li>
+										<li><a href="{% url 'upload'%}">Upload Policy</a></li>
 									</ul>
 								</nav>
 

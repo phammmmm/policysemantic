@@ -1,32 +1,7 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Murdoch - Policy Index</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{% static "assets/css/main.css" %}" />
-	</head>
 
-	<body class="is-preload">
-
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-
-							<!-- Header -->
-								<header id="header">
-									<a href="{% url 'index'%}" class="logo"><strong>Murdoch University</strong> Policy Index</a>
-								</header>
-
+						{% block content %}
 							<!-- Section -->
 								<section>
 									<header class="main">
@@ -35,43 +10,4 @@
 									<hr class="major" />
 									<span class="image main"><img src="{% static "images/node_diagram.jpg" %}" alt="Can't show image!"/></span>
 								</section>
-
-						</div>
-					</div>
-
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="{% url 'index'%}">Homepage</a></li>
-										<li><a href="{% url 'search'%}">Search Policy</a></li>
-										<li><a href="{% url 'browse'%}">Browse Policy</a></li>
-										<li><a href="{% url 'upload'%}">Upload Policy</a></li>
-									</ul>
-								</nav>
-
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Murdoch University. All rights reserved. Demo Images: <a href="{% static "https://unsplash.com" %}">Unsplash</a>. Design: <a href="{% static "https://html5up.net" %}">HTML5 UP</a>.</p>
-								</footer>
-
-						</div>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="{% static "assets/js/jquery.min.js" %}"></script>
-			<script src="{% static "assets/js/browser.min.js" %}"></script>
-			<script src="{% static "assets/js/breakpoints.min.js" %}"></script>
-			<script src="{% static "assets/js/util.js" %}"></script>
-			<script src="{% static "assets/js/main.js" %}"></script>
-
-	</body>
-</html>
+						{% endblock %}

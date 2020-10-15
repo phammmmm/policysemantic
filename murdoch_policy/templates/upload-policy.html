@@ -1,138 +1,138 @@
 {% extends 'base.html' %}
 {% load static %}
 
-						{% block content %}
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Upload Policy</h1>
-									</header>
-									<hr class="major" />
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Add Policy Document</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>
-														<form method="post" action="#">
-															<div class="row gtr-uniform">
-																<!-- Break -->
-																<div class="col-12">
-																	<input type="file" id="myFile" name="filename">
-																</div>
+{% block content %}
+    <!-- Content -->
+    <section>
+        <header class="main">
+            <h1>Upload Policy</h1>
+        </header>
+        <hr class="major" />
+        <div class="table-wrapper">
+            <table class="alt">
+                <thead>
+                <tr>
+                    <th>Add Policy Document</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <form method="post" action="#">
+                            <div class="row gtr-uniform">
+                                <!-- Break -->
+                                <div class="col-12">
+                                    <input type="file" id="myFile" name="filename">
+                                </div>
 
-																<!-- Break -->
-																<div class="col-12">
-																	<ul class="actions">
-																		<li><input type="submit" value="Process" class="primary" /></li>
-																		<li><input type="reset" value="Reset" /></li>
-																	</ul>
-																</div>
-															</div>
-														</form>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<form method="post" action="#">
-															<div class="row gtr-uniform">
-																<!-- Break -->
-																<div class="col-12 col-12-xsmall">
-																	<label for="documentTitle">Document Title:</label>
-																	<input type="text" name="demo-name" id="demo-name" value="" placeholder="Document Title" />
-																</div>
-																<!-- Break -->
-																<div class="col-12 col-12-xsmall">
-																	<label for="documentType">Document Type:</label>
-																	<input type="text" name="demo-name" id="demo-name" value="" placeholder="Document Type" />
-																</div>
-																<!-- Break -->
-																<div class="col-12">
-																	<label for="Category">Category:</label>
-																	<select name="demo-category" id="demo-category">
-																		<option value="">- Category -</option>
-																		<option value="1">Community & Development</option>
-																		<option value="1">Finance, Purchasing & Insurance</option>
-																		<option value="1">Governance</option>
-																		<option value="1">Health, Safety & Environment</option>
-																		<option value="1">Information Technology</option>
-																		<option value="1">Learning & Teaching</option>
-																		<option value="1">People & Culture</option>
-																		<option value="1">Physical Facilities</option>
-																		<option value="1">Research</option>
-																	</select>
-																</div>
-																<!-- Break -->
-																<div class="col-12 col-12-xsmall">
-																	<label for="definitionalDetails">Definitional Details:</label>
-																	<input type="text" name="demo-name" id="demo-name" value="" placeholder="Definitional Details" />
-																</div>
-																<!-- Break -->
-																<div class="col-12 col-12-xsmall">
-																	<label for="dateModified">Date Modified:</label>
-																	<input type="text" name="demo-name" id="demo-name" value="" placeholder="Date Modified" />
-																</div>
-																<!-- Break -->
-																<div class="col-12">
-																	<ul class="actions">
-																		<li><input type="submit" value="Confirm" class="primary" /></li>
-																		<li><input type="reset" value="Reset" /></li>
-																	</ul>
-																</div>
-															</div>
-														</form>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<!-- Table -->
-															<div class="table-wrapper">
-																<table class="alt">
-																	<thead>
-																		<tr>
-																			<th>Type</th>
-																			<th>Ver #</th>
-																			<th>Description</th>
-																		</tr>
-																	</thead>
-																	<tbody>
-																		<tr>
-																			<td>PDF</td>
-																			<td>3</td>
-																			<td>Acquisition of Artwork Procedure</td>
-																		</tr>
-																		<tr>
-																			<td>PDF</td>
-																			<td>3</td>
-																			<td>Advertising Procedure</td>
-																		</tr>
-																		<tr>
-																			<td>PDF</td>
-																			<td>1</td>
-																			<td>Art Board Terms of Reference</td>
-																		</tr>
-																		<tr>
-																			<td>PDF</td>
-																			<td>6</td>
-																			<td>Brand Policy</td>
-																		</tr>
-																		<tr>
-																			<td>PDF</td>
-																			<td>6</td>
-																			<td>Branding Use and Approvals Procedure</td>
-																		</tr>
-																	</tbody>
-																</table>
-															</div>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
+                                <!-- Break -->
+                                <div class="col-12">
+                                    <ul class="actions">
+                                        <li><input type="submit" value="Process" class="primary" /></li>
+                                        <li><input type="reset" value="Reset" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <form method="post" action="#">
+                            <div class="row gtr-uniform">
+                                <!-- Break -->
+                                <div class="col-12 col-12-xsmall">
+                                    <label for="documentTitle">Document Title:</label>
+                                    <input type="text" name="demo-name" id="demo-name" value="" placeholder="Document Title" />
+                                </div>
+                                <!-- Break -->
+                                <div class="col-12 col-12-xsmall">
+                                    <label for="documentType">Document Type:</label>
+                                    <input type="text" name="demo-name" id="demo-name" value="" placeholder="Document Type" />
+                                </div>
+                                <!-- Break -->
+                                <div class="col-12">
+                                    <label for="Category">Category:</label>
+                                    <select name="demo-category" id="demo-category">
+                                        <option value="">- Category -</option>
+                                        <option value="1">Community & Development</option>
+                                        <option value="1">Finance, Purchasing & Insurance</option>
+                                        <option value="1">Governance</option>
+                                        <option value="1">Health, Safety & Environment</option>
+                                        <option value="1">Information Technology</option>
+                                        <option value="1">Learning & Teaching</option>
+                                        <option value="1">People & Culture</option>
+                                        <option value="1">Physical Facilities</option>
+                                        <option value="1">Research</option>
+                                    </select>
+                                </div>
+                                <!-- Break -->
+                                <div class="col-12 col-12-xsmall">
+                                    <label for="definitionalDetails">Definitional Details:</label>
+                                    <input type="text" name="demo-name" id="demo-name" value="" placeholder="Definitional Details" />
+                                </div>
+                                <!-- Break -->
+                                <div class="col-12 col-12-xsmall">
+                                    <label for="dateModified">Date Modified:</label>
+                                    <input type="text" name="demo-name" id="demo-name" value="" placeholder="Date Modified" />
+                                </div>
+                                <!-- Break -->
+                                <div class="col-12">
+                                    <ul class="actions">
+                                        <li><input type="submit" value="Confirm" class="primary" /></li>
+                                        <li><input type="reset" value="Reset" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- Table -->
+                        <div class="table-wrapper">
+                            <table class="alt">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Ver #</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>PDF</td>
+                                    <td>3</td>
+                                    <td>Acquisition of Artwork Procedure</td>
+                                </tr>
+                                <tr>
+                                    <td>PDF</td>
+                                    <td>3</td>
+                                    <td>Advertising Procedure</td>
+                                </tr>
+                                <tr>
+                                    <td>PDF</td>
+                                    <td>1</td>
+                                    <td>Art Board Terms of Reference</td>
+                                </tr>
+                                <tr>
+                                    <td>PDF</td>
+                                    <td>6</td>
+                                    <td>Brand Policy</td>
+                                </tr>
+                                <tr>
+                                    <td>PDF</td>
+                                    <td>6</td>
+                                    <td>Branding Use and Approvals Procedure</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
-								</section>
-						{% endblock %}
+    </section>
+{% endblock %}

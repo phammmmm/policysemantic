@@ -19,4 +19,4 @@ def browse(request):
     return render(request, 'browse-policy.html')
 
 def login(request):
-    return render(request, 'login.html')
+    return render(request, 'registration/login.html')

@@ -16,6 +16,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
+STATIC_DIR = os.path.join(BASE_DIR, "static")
 #REMOVED TO USE IN SERVER / UNCOMMENT TO USE IN LOCALHOST - STATIC_DIR = os.path.join(BASE_DIR, "static")
 #ADDED BOTTOM - STATIC_ROOT = '/home/student/policysemantic/murdoch_policy/static'
 
@@ -28,7 +29,7 @@ SECRET_KEY = '13&&qy%ti2%k3)*t1e1^9c=a@xfzbx&&ittxt$e&v@jc=a&6nb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.51.33.56']
+ALLOWED_HOSTS = ['10.51.33.56', '127.0.0.1']
 
 
 # Application definition
@@ -58,7 +59,8 @@ ROOT_URLCONF = 'murdoch_policy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates') ],
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
+#        'DIRS': [os.path.join(BASE_DIR, 'templates') ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,20 +79,20 @@ WSGI_APPLICATION = 'murdoch_policy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#       'ENGINE': 'django.db.backends.sqlite3',
-#       'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
 DATABASES = {
     'default': {
-       'ENGINE': 'django.db.backends.mysql',
-       'OPTIONS': {'read_default_file': '/home/student/policysemantic/auth/mysql.cnf',
-       },
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+#DATABASES = {
+#    'default': {
+#       'ENGINE': 'django.db.backends.mysql',
+#       'OPTIONS': {'read_default_file': '/home/student/policysemantic/auth/mysql.cnf',
+#       },
+#    }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -129,15 +131,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/student/policysemantic/murdoch_policy/static'
+#STATIC_ROOT = '/home/student/policysemantic/murdoch_policy/static'
 
 #USED - STATIC_ROOT = '/home/student/policysemantic/murdoch_policy/static'
-#REMOVED TO USE IN SERVER / UNCOMMENT TO USE IN LOCALHOST 
-#STATICFILES_DIRS = [
-#    STATIC_DIR,
-#    'assets/css/',
-#    'assets/js',
-#    'assets/sass',
-#    'assets/components',
-#    'assets/webfonts'
-#]
+#REMOVED TO USE IN SERVER / UNCOMMENT TO USE IN LOCALHOST
+STATICFILES_DIRS = [
+    STATIC_DIR,
+    'assets/css/',
+    'assets/js',
+    'assets/sass',
+    'assets/components',
+    'assets/webfonts'
+]
+# config/settings.py
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home' # new

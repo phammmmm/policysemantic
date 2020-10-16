@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from murdochpolicyapp import views
 from django.conf.urls import include
+from django.views.generic.base import TemplateView # new
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path('murdochpolicyapp/', include('murdochpolicyapp.urls'))
+#    path('', views.index, name='index'),
+    path('murdochpolicyapp/', include('murdochpolicyapp.urls')),
+    path('murdochpolicyapp/', include('django.contrib.auth.urls')),
+    path('', TemplateView.as_view(template_name='home.html'), name='home'), # new
 ]

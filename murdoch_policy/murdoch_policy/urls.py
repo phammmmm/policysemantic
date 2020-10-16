@@ -20,7 +20,6 @@ from django.conf.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('murdochpolicyapp.urls')),
-#    path('', views.index, name='index'),
+    path('', views.index, name='index'),
     path('murdochpolicyapp/', include('murdochpolicyapp.urls'))
 ]

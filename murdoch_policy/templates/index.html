@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
+<<<<<<< HEAD
 {% block content %}
     <!-- Section -->
     <section>
@@ -11,3 +12,15 @@
         <span class="image main"><img src="{% static "images/node_diagram.jpg" %}" alt="Can't show image!"/></span>
     </section>
 {% endblock %}
+=======
+						{% block content %}
+							<!-- Section -->
+								<section>
+									<header class="main">
+										<h1>Policy Overview</h1>
+									</header>
+									<hr class="major" />
+									<span class="image main"><img src="{% static "images/node_diagram.jpg" %}" alt="Can't show image!"/></span>
+								</section>
+						{% endblock %}
+>>>>>>> parent of aeb0268... Revert "i have created a base.html webpage, since the search, browse, and upload have some simlar layout. the different search, browse, and upload are within the {% block content %} & {% endblock %} of individual webpages."

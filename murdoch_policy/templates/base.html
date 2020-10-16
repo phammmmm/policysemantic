@@ -6,6 +6,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<<<<<<< HEAD
 <head>
     <title>Murdoch - Policy Index</title>
     <meta charset="utf-8" />
@@ -71,4 +72,71 @@
 <script src="{% static "assets/js/main.js" %}"></script>
 
 </body>
+=======
+	<head>
+		<title>Murdoch - Policy Index</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static "assets/css/main.css" %}" />
+	</head>
+
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="{% url 'index'%}" class="logo"><strong>Murdoch University</strong> Policy Index</a>
+								</header>
+
+							<!-- Different Pages Code Here -->
+              {% block content %}
+              
+              {% endblock %}
+							<!-- Different Pages Code End Here -->
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="{% url 'index'%}">Homepage</a></li>
+										<li><a href="{% url 'search'%}">Search Policy</a></li>
+										<li><a href="{% url 'browse'%}">Browse Policy</a></li>
+										<li><a href="{% url 'upload'%}">Upload Policy</a></li>
+									</ul>
+								</nav>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Murdoch University. All rights reserved. Demo Images: <a href="{% static "https://unsplash.com" %}">Unsplash</a>. Design: <a href="{% static "https://html5up.net" %}">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static "assets/js/jquery.min.js" %}"></script>
+			<script src="{% static "assets/js/browser.min.js" %}"></script>
+			<script src="{% static "assets/js/breakpoints.min.js" %}"></script>
+			<script src="{% static "assets/js/util.js" %}"></script>
+			<script src="{% static "assets/js/main.js" %}"></script>
+
+	</body>
+>>>>>>> parent of aeb0268... Revert "i have created a base.html webpage, since the search, browse, and upload have some simlar layout. the different search, browse, and upload are within the {% block content %} & {% endblock %} of individual webpages."
 </html>

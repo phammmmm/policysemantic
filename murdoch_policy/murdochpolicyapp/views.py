@@ -17,3 +17,6 @@ def search(request):
 
 def browse(request):
     return render(request, 'browse-policy.html')
+
+def login(request):
+    return render(request, 'login.html')

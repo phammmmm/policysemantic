@@ -9,4 +9,5 @@ urlpatterns = [
     path('upload/', views.upload, name='upload'),
     path('search/', views.search, name='search'),
     path('browse/', views.browse, name='browse'),
+    path('/registration/login/', views.login, name='login'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

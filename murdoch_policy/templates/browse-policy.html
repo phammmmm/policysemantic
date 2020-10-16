@@ -1,6 +1,7 @@
-{% extends 'base.html' %}
+<!DOCTYPE HTML>
 {% load static %}
 
+<<<<<<< HEAD
 {% block content %}
     <!-- Content -->
     <section>
@@ -104,3 +105,172 @@
 
     </section>
 {% endblock %}
+=======
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Murdoch - Browse Policy</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static "assets/css/main.css" %}" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="{% url 'index'%}" class="logo"><strong>Murdoch University</strong> Policy Index</a>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Browse Policy</h1>
+									</header>
+									<hr class="major" />
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<div class="table-wrapper">
+									<ul class="actions">
+										<li><a href="#" class="button">ADD</a></li>
+										<li><a href="#" class="button primary">DELETE</a></li>
+									</ul>
+												<table class="alt">
+													<thead>
+														<tr>
+															<th>Category</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><a href="/murdochpolicyapp/browse/">Community & Development</a></td>
+														</tr>
+														<tr>
+															<td><a href="/murdochpolicyapp/browse/">Finance, Purchasing & Insurance</a></td>
+														</tr>
+														<tr>
+															<td><a href="/murdochpolicyapp/browse/">Governance</a></td>
+														</tr>
+														<tr>
+															<td><a href="/murdochpolicyapp/browse/">Health, Safety & Environment</a></td>
+														</tr>
+														<tr>
+															<td><a href="/murdochpolicyapp/browse/">Information Technology</a></td>
+														</tr>
+														<tr>
+															<td><a href="/murdochpolicyapp/browse/">Learning & Teaching</a></td>
+														</tr>
+														<tr>
+															<td><a href="/murdochpolicyapp/browse/">People & Culture</a></td>
+														</tr>
+														<tr>
+															<td><a href="/murdochpolicyapp/browse/">Physical Facilities</a></td>
+														</tr>
+														<tr>
+															<td><a href="/murdochpolicyapp/browse/">Research</a></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="col-6 col-12-small">
+										<!-- Search -->
+											<section id="search" class="alt">
+												<form method="post" action="#">
+													<input type="text" name="query" id="query" placeholder="Search" />
+												</form>
+											</section>
+											<!-- Table -->
+												<div class="table-wrapper">
+													<table >
+														<thead>
+															<tr>
+																<th>Type</th>
+																<th>Ver #</th>
+																<th>Description</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>PDF</td>
+																<td>3</td>
+																<td>Acquisition of Artwork Procedure</td>
+															</tr>
+															<tr>
+																<td>PDF</td>
+																<td>3</td>
+																<td>Advertising Procedure</td>
+															</tr>
+															<tr>
+																<td>PDF</td>
+																<td>1</td>
+																<td>Art Board Terms of Reference</td>
+															</tr>
+															<tr>
+																<td>PDF</td>
+																<td>6</td>
+																<td>Brand Policy</td>
+															</tr>
+															<tr>
+																<td>PDF</td>
+																<td>6</td>
+																<td>Branding Use and Approvals Procedure</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+										</div>
+									</div>
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="{% url 'index'%}">Homepage</a></li>
+										<li><a href="{% url 'search'%}">Search Policy</a></li>
+										<li><a href="{% url 'browse'%}">Browse Policy</a></li>
+										<li><a href="{% url 'upload'%}">Upload Policy</a></li>
+									</ul>
+								</nav>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Murdoch University. All rights reserved. Demo Images: <a href="{% static "https://unsplash.com" %}">Unsplash</a>. Design: <a href="{% static "https://html5up.net" %}">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+		<script src="{% static "assets/js/jquery.min.js" %}"></script>
+		<script src="{% static "assets/js/browser.min.js" %}"></script>
+		<script src="{% static "assets/js/breakpoints.min.js" %}"></script>
+		<script src="{% static "assets/js/util.js" %}"></script>
+		<script src="{% static "assets/js/main.js" %}"></script>
+
+	</body>
+</html>
+>>>>>>> parent of fb09861... i have created a base.html webpage, since the search, browse, and upload have some simlar layout. the different search, browse, and upload are within the {% block content %} & {% endblock %} of individual webpages.

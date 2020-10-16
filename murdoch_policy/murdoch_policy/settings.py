@@ -16,8 +16,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
-#REMOVED TO USE IN SERVER / UNCOMMENT TO USE IN LOCALHOST - STATIC_DIR = os.path.join(BASE_DIR, "static")
-#ADDED BOTTOM - STATIC_ROOT = '/home/student/policysemantic/murdoch_policy/static'
+STATIC_DIR = os.path.join(BASE_DIR, "static")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -77,20 +76,13 @@ WSGI_APPLICATION = 'murdoch_policy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#       'ENGINE': 'django.db.backends.sqlite3',
-#       'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
 DATABASES = {
     'default': {
-       'ENGINE': 'django.db.backends.mysql',
-       'OPTIONS': {'read_default_file': '/home/student/policysemantic/auth/mysql.cnf',
-       },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -129,15 +121,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/student/policysemantic/murdoch_policy/static'
-
-#USED - STATIC_ROOT = '/home/student/policysemantic/murdoch_policy/static'
-#REMOVED TO USE IN SERVER / UNCOMMENT TO USE IN LOCALHOST 
-#STATICFILES_DIRS = [
-#    STATIC_DIR,
-#    'assets/css/',
-#    'assets/js',
-#    'assets/sass',
-#    'assets/components',
-#    'assets/webfonts'
-#]
+STATICFILES_DIRS = [
+    STATIC_DIR,
+    'assets/css/',
+    'assets/js',
+    'assets/sass',
+    'assets/components',
+    'assets/webfonts'
+]

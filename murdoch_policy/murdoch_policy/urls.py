@@ -16,13 +16,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from murdochpolicyapp import views
+#from murdochpolicyapp.views import index
 from django.conf.urls import include
+from django.conf.urls import url
+from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView # new
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-#    path('', views.index, name='index'),
-    path('murdochpolicyapp/', include('murdochpolicyapp.urls')),
+#    url(r'^admin/$', index, name='index'),
+    path('', include('murdochpolicyapp.urls')),
     path('murdochpolicyapp/', include('django.contrib.auth.urls')),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'), # new
+#    path('murdochpolicyapp/login', auth_views.LoginView.as_view()),
+#    path('murdochpolicyapp/', include('murdochpolicyapp.urls')),
+#    path('', views.index, name='index'),
+#    path('', TemplateView.as_view(template_name='home.html'), name='home'), # new
+#    path('', admin.site.urls), # new
+#    url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
+#    url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
+#    url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
 ]

@@ -18,7 +18,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                          {% for policy_category in policy_categories %}
+                            <tr>
+                                <td><a href="/staff/browse">{{policy_category.Category}}</a></td>
+                            </tr>
+                          {% endfor %}
+                        <!-- <tr>
                             <td><a href="/staff/browse">Community & Development</a></td>
                         </tr>
                         <tr>
@@ -44,7 +49,7 @@
                         </tr>
                         <tr>
                             <td><a href="/staff/browse">Research</a></td>
-                        </tr>
+                        </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -53,6 +58,7 @@
                 <!-- Search -->
                 <section id="search" class="alt">
                     <form method="post" action="#">
+                        {% csrf_token %}
                         <input type="text" name="query" id="query" placeholder="Search" />
                     </form>
                 </section>

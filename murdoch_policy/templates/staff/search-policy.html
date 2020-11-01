@@ -11,6 +11,7 @@
         <!-- Search -->
         <section id="search" class="alt">
             <form method="post" action="#">
+                {% csrf_token %}
                 <input type="text" name="query" id="query" placeholder="Search" />
             </form>
         </section>

@@ -3,9 +3,15 @@ from django.db import models
 #from django.utils.translation import gettext as _
 
 # Create your models here.
-class User (models.Model):
-    first_name = models.CharField(max_length=256)
-    last_name = models.CharField(max_length=256)
+class Category(models.Model):
+    Category = models.CharField(max_length=200)
+    def __str__(self):
+        return self.Category
+    class Meta:
+        verbose_name_plural = 'Policy Category'
+# class User (models.Model):
+#     first_name = models.CharField(max_length=256)
+#     last_name = models.CharField(max_length=256)
 #    username_validator = UnicodeUsernameValidator()
 
 #    username = models.CharField(

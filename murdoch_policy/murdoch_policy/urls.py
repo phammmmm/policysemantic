@@ -24,9 +24,9 @@ from django.views.generic.base import TemplateView # new
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-#    url(r'^admin/$', index, name='index'),
     path('', include('murdochpolicyapp.urls')),
-    path('murdochpolicyapp/', include('django.contrib.auth.urls')),
+    path('murdochpolicyapp/', include('django.contrib.auth.urls')), 
+#    url(r'^admin/$', index, name='index'),
 #    path('murdochpolicyapp/login', auth_views.LoginView.as_view()),
 #    path('murdochpolicyapp/', include('murdochpolicyapp.urls')),
 #    path('', views.index, name='index'),

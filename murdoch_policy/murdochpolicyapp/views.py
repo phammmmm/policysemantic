@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-
+from .models import Category
 
 # Create your views here.
 @login_required(login_url='/admin/login/')
@@ -14,10 +14,18 @@ def upload(request):
     return render(request, 'upload-policy.html')
 
 def search(request):
-    return render(request, 'search-policy.html')
+    return render(request, 'search-policy.html', {'title':'Search'})
 
 def browse(request):
-    return render(request, 'browse-policy.html')
+    #policy_categories = Catergory.objects.all()[:10]
+    policy_categories = Category.objects.all()
+
+    context = {
+    'policy_categories': policy_categories
+    }
+
+    return render(request, 'browse-policy.html', context)
+    #return render(request, 'browse-policy.html')
 
 def login(request):
     return render(request, 'accounts/login.html')
@@ -29,4 +37,9 @@ def staffSearch(request):
     return render(request, 'staff/search-policy.html')
 
 def staffBrowse(request):
-    return render(request, 'staff/browse-policy.html')
+    policy_categories = Category.objects.all()
+
+    context = {
+    'policy_categories': policy_categories
+    }
+    return render(request, 'staff/browse-policy.html', context)

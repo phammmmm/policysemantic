@@ -1,0 +1,18 @@
+{% extends "admin/login.html" %}
+
+{% load static %}
+{% block extrastyle %}
+{{ block.super }}
+    <style>
+    #header {
+    background-color: transparent;
+    }
+    </style>
+    <link rel="stylesheet" href="{% static "assets/css/main.css" %}" />
+{% endblock %}
+
+{% block branding %}
+    <a href="#" class="logo"><strong>Murdoch University Policy</strong> </a>
+{% endblock %}
+{% block content_title %}
+{% endblock %}

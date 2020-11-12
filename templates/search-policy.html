@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Content -->
+	<section>
+		<header class="main">
+			<h1>Search Policy</h1>
+<!-- Search -->
+
+	<section id="search" class="alt">
+		<form action="{% url 'search' %}" method="get">
+			<input name="q" type="text" placeholder="Search...">
+		</form>
+	</section>
+<!-- Table -->
+	<div class="table-wrapper">
+		<table>
+			<thead>
+				<tr>
+					<th>Document Name</th>
+					<th>Version</th>
+					<th>Category</th>
+					<th>Owner</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% if object_list %}
+			{% for document in object_list %}
+			<tr>
+				<td><a href="{% url 'document-detail' document.id %}">{{document.title}}</a></td>
+				<td>{{document.version}}</td>
+				<td>{{document.category.category_name}}</td>
+				<td>{{document.owner.first_name}} {{document.owner.last_name}}</td>
+			</tr>
+			{% endfor %}
+			{% endif %}
+			</tbody>
+		</table>
+	</div>
+	</section>
+{% endblock content %}
+							
+
+			

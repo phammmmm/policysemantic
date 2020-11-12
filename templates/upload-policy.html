@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{{ form.media }}
+
+{% load static %}
+
+
+{% block content %}
+<!-- Content -->
+	<section>
+		<header class="main">
+			<h1>Upload Policy</h1>
+		</header>
+
+		<hr class="major" />
+		
+		<div class="table-wrapper">
+			<table class="alt">
+				<thead>
+					<tr>
+						<th><h3>Add Policy Document</h3></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							 <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
+								<div class="row gtr-uniform">
+\
+									<!-- Break -->
+									<div class="col-10">
+										{% csrf_token %}
+										{% bootstrap_form form%}
+									</div>
+
+									<!-- Break -->
+									<div class="col-10">
+										<ul class="actions">
+											<li><input type="submit" value="Process" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</div>
+								</div>
+							</form> 
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</div>
+	</section>
+
+{% endblock content %}
+							

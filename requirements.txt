@@ -1,0 +1,16 @@
+django
+nltk
+gensim
+numpy
+sklearn
+scipy
+networkx
+matplotlib
+PDFMiner
+mysqlclient
+mysql-connector-python
+num2words
+PyQt5
+django-bootstrap3
+django-bootstrap-datepicker-plus
+pandas

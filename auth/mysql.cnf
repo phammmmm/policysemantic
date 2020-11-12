@@ -1,5 +1,0 @@
-[client]
-database = 'murdoch_policy_index'
-user = 'ict302'
-password = '!QAZ@WSX3edc4rfv%%TGB^^YHN'
-default-character-set = 'utf8'

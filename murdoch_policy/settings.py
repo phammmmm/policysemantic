@@ -47,7 +47,7 @@ SECRET_KEY = '13&&qy%ti2%k3)*t1e1^9c=a@xfzbx&&ittxt$e&v@jc=a&6nb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','10.51.33.56']
+ALLOWED_HOSTS = ['127.0.0.1','10.51.33.56']
 
 
 # Application definition
@@ -102,26 +102,12 @@ WSGI_APPLICATION = 'murdoch_policy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'murdoch_policy',
-        'USER': 'admin',
-        'PASSWORD': 'Murdoch1#',
-        'HOST': '',
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
 #         'NAME': 'murdoch_policy',
-#         'USER': 'root',
-#         'PASSWORD': '',
+#         'USER': 'admin',
+#         'PASSWORD': 'Murdoch1#',
 #         'HOST': '',
 #         'PORT': '3306',
 #         'OPTIONS': {
@@ -129,6 +115,20 @@ DATABASES = {
 #         }
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'murdoch_policy',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
+    }
+}
 
 
 # Password validation

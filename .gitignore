@@ -3,3 +3,5 @@ venv/
 murdoch_policy/__pycache__/
 *.pyc
 media/.DS_Store
+murdoch_policy/settings.py
+murdoch_policy/wsgi.py

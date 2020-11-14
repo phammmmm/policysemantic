@@ -9,10 +9,10 @@ https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/
 
 import os
 
-# from django.core.wsgi import get_wsgi_application
-from murdoch_policy.wsgi import murdochpolicyapp
+from django.core.wsgi import get_wsgi_application
+#from murdoch_policy.wsgi import murdochpolicyapp
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'murdoch_policy.settings')
 
-#application = get_wsgi_application()
-application = murdochpolicyapp(application)
+application = get_wsgi_application()
+#application = murdochpolicyapp(application)

@@ -20,6 +20,7 @@ from django.shortcuts import render
 
 from murdochpolicyapp.forms import DocumentForm
 
+
 @login_required(login_url='/admin/login/')
 def index(request):
     if request.user.is_authenticated:
@@ -71,7 +72,7 @@ class UploadPage(TemplateView):
             if form.is_valid():
 
                 #Clean up file or document with same title
-                title = form.cleaned_data['title'].strip()
+                title = form.cleaned_data['title'].strip().title()
                 file_name = os.path.join(settings.DOC_DIR,title.replace(' ','_')+'.pdf')
                 if(os.path.isfile(file_name)):
                     os.remove(file_name)

@@ -1,0 +1,5 @@
+venv/
+.vscode/
+murdoch_policy/__pycache__/
+*.pyc
+media/.DS_Store

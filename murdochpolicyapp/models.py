@@ -5,7 +5,15 @@ from django.db import models
 from django.contrib import auth,admin
 from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
+from django.core.exceptions import ValidationError
+from django.core.validators import MinValueValidator
 from django.utils import timezone
+
+def validate_file_extension(value):
+    ext = os.path.splitext(value.name)[1]  # [0] returns path+filename
+    valid_extensions = ['.pdf']
+    if not ext.lower() in valid_extensions:
+        raise ValidationError('Unsupported file extension.')
 
 def get_path(instance,filename):
     name = instance.title.replace(' ','_')+'.pdf'
@@ -41,7 +49,7 @@ class OverwriteStorage(FileSystemStorage):
 # Create document models
 class Document(models.Model):
     title = models.CharField(max_length=200)
-    version = models.IntegerField(default=1)
+    version = models.IntegerField(default=1, validators=[MinValueValidator(1)])
     owner = models.ForeignKey(User,on_delete=models.CASCADE)
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     document_type = models.ForeignKey(DocumentType,on_delete=models.CASCADE)
@@ -49,12 +57,12 @@ class Document(models.Model):
     created_date = models.DateTimeField()
     last_modified_date = models.DateTimeField(auto_now=True)
     last_review_date = models.DateTimeField()
-    review_interval = models.IntegerField(default=1)
+    review_interval = models.IntegerField(default=1,validators=[MinValueValidator(1)])
     next_review_date = models.DateTimeField()
     document_size = models.IntegerField(default=1)
     document_text = models.TextField()
     feature_words = models.TextField()
-    document_file = models.FileField(blank=True, max_length=256, upload_to=get_path)
+    document_file = models.FileField(blank=True, max_length=256, upload_to=get_path, validators=[validate_file_extension])
     related_documents =[]
     class Meta:
         ordering = ["-title"]

@@ -24,6 +24,7 @@ from murdochpolicyapp.forms import DocumentForm
 @login_required(login_url='/admin/login/')
 def index(request):
     if request.user.is_authenticated:
+        utils.refreshHomeGraph()
         return render(request, 'index.html')
 
 

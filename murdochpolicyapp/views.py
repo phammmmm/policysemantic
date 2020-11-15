@@ -78,8 +78,7 @@ class UploadPage(TemplateView):
                     os.remove(file_name)
                 docs = Document.objects.filter(title__exact=title)
                 if(len(docs)>0):
-                    for doc in docs: 
-                        utils.removeDocument(doc)
+                    docs.delete()
                 
                 obj = form.save()
 

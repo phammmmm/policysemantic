@@ -73,8 +73,8 @@ class Document(models.Model):
 
 # Create DocLink
 class DocumentLink(models.Model):
-    source = models.IntegerField()
-    target = models.IntegerField()
+    source = models.ForeignKey(Document,related_name='documentSource',on_delete=models.CASCADE)
+    target = models.ForeignKey(Document,related_name='documentTarget',on_delete=models.CASCADE)
     value = models.FloatField()
 
 class Reminder(models.Model):

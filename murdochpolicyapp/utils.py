@@ -169,9 +169,7 @@ def draw_network_documents(docs,docLinks,img_path):
         G.add_node(doc.title, group=doc.category.id, nodesize=doc.document_size)
 
     for link in docLinks:       
-        doc1 = Document.objects.get(pk=link.source)
-        doc2 = Document.objects.get(pk=link.target)
-        G.add_weighted_edges_from([(doc1.title, doc2.title, link.value)])
+        G.add_weighted_edges_from([(link.source.title, link.target.title, link.value)])
     
     cats = Category.objects.all()
     color_map = {}
@@ -203,25 +201,21 @@ def draw_network_documents(docs,docLinks,img_path):
 def draw_doc_relationship(doc):
     docs = []
     docs.append(doc)
-    for link in DocumentLink.objects.filter(source__exact=doc.id):
-        target = Document.objects.get(pk=link.target)
-        docs.append(target)
-    for link in DocumentLink.objects.filter(target__exact=doc.id):
-        source = Document.objects.get(pk=link.source)
-        docs.append(source)
+    for link in DocumentLink.objects.filter(source_id__exact=doc.id):
+        docs.append(link.target)
+    for link in DocumentLink.objects.filter(target_id__exact=doc.id):
+        docs.append(link.source)
         
-    docLinks = DocumentLink.objects.filter(Q(source__exact=doc.id) | Q(target__exact=doc.id))
+    docLinks = DocumentLink.objects.filter(Q(source_id__exact=doc.id) | Q(target_id__exact=doc.id))
     image_path = os.path.join(settings.IMG_DIR,str(doc.id)+'.png')
     draw_network_documents(docs,docLinks,image_path)
 
 def getRelatedDoc(doc):
     docs = []
-    for link in DocumentLink.objects.filter(source__exact=doc.id):
-        target = Document.objects.get(pk=link.target)
-        docs.append([target.title,link.value])
-    for link in DocumentLink.objects.filter(target__exact=doc.id):
-        source = Document.objects.get(pk=link.source)
-        docs.append([source.title,link.value])
+    for link in DocumentLink.objects.filter(source_id__exact=doc.id):
+        docs.append([link.target.title,link.value])
+    for link in DocumentLink.objects.filter(target_id__exact=doc.id):
+        docs.append([link.source.title,link.value])
     return docs
 
 def refreshStopWords():
@@ -237,11 +231,6 @@ def refreshStopWords():
         w, created = StopWord.objects.get_or_create(value=word)
         if created:
             w.save()
-
-def removeDocument(doc_obj):
-    DocumentLink.objects.filter(source__exact=doc_obj.id).delete()
-    DocumentLink.objects.filter(target__exact=doc_obj.id).delete()
-    doc_obj.delete()
     
 #Create DocLinks
 def createDocLinks(doc_obj):
@@ -250,7 +239,7 @@ def createDocLinks(doc_obj):
         if(doc_obj.id!=docs[i].id):
             similarity = get_similarity(docs[i].document_text, doc_obj.document_text)
             if(similarity>settings.RELATED_ALPHA):
-                doclink = DocumentLink.objects.create(source=docs[i].id,target=doc_obj.id,value=similarity)
+                doclink = DocumentLink.objects.create(source=docs[i],target=doc_obj,value=similarity)
                 doclink.save()
 
 def refreshHomeGraph():
@@ -315,7 +304,7 @@ def refreshDocs():
             if i<j:
                 similarity = get_similarity(docs[i].document_text, docs[j].document_text)
                 if(similarity>settings.RELATED_ALPHA):
-                    doclink = DocumentLink.objects.create(source=docs[i].id,target=docs[j].id,value=similarity)
+                    doclink = DocumentLink.objects.create(source=docs[i],target=docs[j],value=similarity)
                     doclink.save()
     #Redraw the documents network graph
     docLinks = DocumentLink.objects.all()

@@ -75,7 +75,7 @@ class Document(models.Model):
 class DocumentLink(models.Model):
     source = models.ForeignKey(Document,related_name='documentSource',on_delete=models.CASCADE)
     target = models.ForeignKey(Document,related_name='documentTarget',on_delete=models.CASCADE)
-    value = models.FloatField()
+    value = models.FloatField() 
 
 class Reminder(models.Model):
     user = models.ForeignKey(auth.models.User, on_delete=models.CASCADE)

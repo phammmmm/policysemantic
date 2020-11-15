@@ -240,7 +240,7 @@ def createDocLinks(doc_obj):
             similarity = get_similarity(docs[i].document_text, doc_obj.document_text)
             if(similarity>settings.RELATED_ALPHA):
                 doclink = DocumentLink.objects.create(source=docs[i],target=doc_obj,value=similarity)
-                doclink.save()
+                doclink.save() 
 
 def refreshHomeGraph():
     docs = Document.objects.all()

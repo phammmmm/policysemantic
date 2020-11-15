@@ -239,9 +239,8 @@ def refreshStopWords():
             w.save()
 
 def removeDocument(doc_obj):
-    docLinks = DocumentLink.objects.filter(Q(source__exact=doc_obj.id) | Q(target__exact=doc_obj.id))
-    for link in docLinks:
-        link.delete()
+    DocumentLink.objects.filter(source__exact=doc_obj.id).delete()
+    DocumentLink.objects.filter(target__exact=doc_obj.id).delete()
     doc_obj.delete()
     
 #Create DocLinks
@@ -282,37 +281,10 @@ def sendReminderBatch():
         if (datetime.now(timezone.utc) > reminder.document.next_review_date) :
             sendReminder(reminder)
 
-def refreshAll():
-    #Clean up all tables
+def refreshDocs():
     DocumentLink.objects.all().delete()
     Document.objects.all().delete()
-    DocumentType.objects.all().delete()
-    Category.objects.all().delete()
-    for user in User.objects.all():
-        if(user.username != 'admin' and user.username != 'meo'):
-            user.delete()
-            
-    #Init StopWords
-    refreshStopWords()
-    
-    #Init Users
-    user_data = pd.read_csv('user.csv')
-    for i in range(len(user_data)):
-        user = User.objects.create_user(user_data['UserName'][i].strip(), password='ict30208',first_name = user_data['FirstName'][i], last_name=user_data['LastName'][i], is_staff=True, is_superuser=True)
-        user.save()
-        
-    #Init Categories
-    cat_data = pd.read_csv("category.csv")
-    for catname in cat_data['Category']:
-        cat = Category.objects.create(category_name=catname.strip())
-        cat.save()
-    #Init Document Types
-    dt_data = pd.read_csv("doc_type.csv")
-    for dt in dt_data['doc_type']:
-        doctype = DocumentType.objects.create(document_type=dt.strip())
-        doctype.save()
-    
-    #Init Documents
+     #Init Documents
     doc_data = pd.read_csv("policy_data.csv") 
     for i in range(len(doc_data)):
         title = doc_data['Title'][i].strip()
@@ -350,4 +322,34 @@ def refreshAll():
     print(len(docs))
     print(len(docLinks))
     draw_network_documents(docs,docLinks,settings.HOMEPAGE_MAP)
+
+def refreshAll():
+    #Clean up all tables
+    DocumentType.objects.all().delete()
+    Category.objects.all().delete()
+    for user in User.objects.all():
+        if(user.username != 'admin' and user.username != 'meo'):
+            user.delete()
+            
+    #Init StopWords
+    refreshStopWords()
+    
+    #Init Users
+    user_data = pd.read_csv('user.csv')
+    for i in range(len(user_data)):
+        user = User.objects.create_user(user_data['UserName'][i].strip(), password='ict30208',first_name = user_data['FirstName'][i], last_name=user_data['LastName'][i], is_staff=True, is_superuser=True)
+        user.save()
+        
+    #Init Categories
+    cat_data = pd.read_csv("category.csv")
+    for catname in cat_data['Category']:
+        cat = Category.objects.create(category_name=catname.strip())
+        cat.save()
+    #Init Document Types
+    dt_data = pd.read_csv("doc_type.csv")
+    for dt in dt_data['doc_type']:
+        doctype = DocumentType.objects.create(document_type=dt.strip())
+        doctype.save()
+    refreshDocs()
+   
 

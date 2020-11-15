@@ -91,7 +91,7 @@ class UploadPage(TemplateView):
                 #create doc links
                 utils.createDocLinks(obj)
                 #set reminder
-                reminder = Reminder.objects.create(user=obj.owner.user,document=obj)
+                reminder = Reminder.objects.create(user=obj.owner,document=obj)
                 reminder.save()
                 #refresh the home page document network 
                 utils.refreshHomeGraph()

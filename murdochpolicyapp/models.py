@@ -16,7 +16,7 @@ def validate_file_extension(value):
         raise ValidationError('Unsupported file extension.')
 
 def get_path(instance,filename):
-    name = instance.title.replace(' ','_')+'.pdf'
+    name = instance.title.replace(' ','_').title()+'.pdf'
     return os.path.join('policy_documents',name)
 
 # Create your models here.
